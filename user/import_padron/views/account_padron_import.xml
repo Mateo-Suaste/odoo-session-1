@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="import_padron.action_padron_import" model="ir.actions.act_window">
+        <field name="name">Importar Padron</field>
+        <field name="res_model">account.import.padron</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="import_padron.view_tree" model="ir.ui.view">
+        <field name="name">account.padron.import.view.tree</field>
+        <field name="model">account.import.padron</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date" string="Fecha"/>
+                <field name="file_name" string="Nombre Fichero"/>
+                <field name="imported" string="Importado"/>
+                <field name="company_id" string="Empresa"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="import_padron.view_form" model="ir.ui.view">
+        <field name="name">account.padron.import.view.form</field>
+        <field name="model">account.import.padron</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="file_name" invisible="1"/>
+                            <field name="pre_processed" invisible="1"/>
+                            <field name="create_date" string="Fecha"/>
+                            <field name="padron_file" string="Padron" filename="file_name" />
+                            <field name="tax_prefix" string="Prefijo Fiscal"/>
+                            <field name="line_limit" string="Límite de procesamiento de línea"/>
+                            <button string="Importar Padron" type="object" name="action_import_padron"  invisible="pre_processed == False"/>
+                            <button string="Validar Padron" type="object" name="action_compute_padron_lines" invisible="pre_processed == True"/>
+                        </group>
+                        <group>
+                            <field name="company_id" string="Empresa"/>
+                            <field name="lines_count" string="Lineas a procesar"/>
+                            <field name="update_count" string="Padron Actualizado"/>
+                            <field name="create_count" string="Padron Creado"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="lineas_a_procesar" string="Lineas a Procesar">
+                            <field name="padron_lines" nolabel="1" widget="text" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+        id="import_padron.menu_afip_config"
+        name="Importar Padron"
+        parent="l10n_ar.menu_afip_config"
+        action="import_padron.action_padron_import"
+        sequence="53"/>
+
+</odoo>
