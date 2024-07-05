@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="import_padron.inherit_account_config_settings" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='default_taxes']/div[@class='content-group']" position="inside">
+                <div class="row mt16">
+                    <label string="Impuestos de Retencion IIBB" for="tax_retencion_id" class="col-lg-3 o_light_label"/>
+                    <field name="tax_retencion_id" />
+                </div>
+                <div class="row mt16">
+                    <label string="Impuestos de Percepcion IIBB" for="tax_perception_id" class="col-lg-3 o_light_label"/>
+                    <field name="tax_perception_id" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

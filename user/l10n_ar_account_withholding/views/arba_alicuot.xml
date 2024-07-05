@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ar_account_withholding.arba_alicuot_view_tree" model="ir.ui.view">
+        <field name="name">arba_alicuot.view_tree</field>
+        <field name="model">arba.alicuot</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="company_id" string="Compañia" width="20%"/>
+                <field name="tax_id" string="Impuesto" width="15%"/>
+                <field name="date_from" string="Fecha Desde" width="10%"/>
+                <field name="date_to" string="Fecha Hasta" width="10%"/>
+                <field name="alicuot_perception" string="Alicuota Percepcion" width="15%"/>
+                <field name="alicuot_retencion" string="Alicuota Retencion" width="15%"/>
+                <field name="from_padron" string="Desde Padron" width="15%"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_ar_account_withholding.arba_alicuot_view_form" model="ir.ui.view">
+        <field name="name">arba_alicuot.view_form</field>
+        <field name="model">arba.alicuot</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id" string="Compañia" options="{'no_create': True, 'no_open': True}" />
+                            <field name="tax_id" string="Impuesto"/>
+                            <field name="witholding_amount_type" string="Base para retenciones"/>
+                        </group>
+                        <group>
+                                <field name="date_from" string="Fecha Desde"/>
+                                <field name="date_to" string="Fecha Hasta"/>
+                            <field name="alicuot_perception" string="Alicuota Percepcion"/>
+                            <field name="alicuot_retencion" string="Alicuota Retencion"/>
+                            <field name="from_padron" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

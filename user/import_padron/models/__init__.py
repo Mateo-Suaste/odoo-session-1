@@ -1,1 +1,1 @@
-from . import account_import_padron, account_padron
+from . import account_import_padron, account_padron, res_config_settings

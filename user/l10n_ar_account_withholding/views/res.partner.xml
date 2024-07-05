@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ar_account_withholding.inherit_partner_view_form" model="ir.ui.view">
+        <field name="name">inherit_res.partner_view_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page name="tax_data" string="Datos Fiscales">
+                    <separator string="AFIP" colspan="2"/>
+                    <group>
+                        <field name="start_date" string="Inicio de actividades"/>
+                        <field name="last_update_padron" string="Última actualización Padrón"/>
+                        <field name="imp_ganancias_padron" string="Ganancias"/>
+                        <field name="default_regimen_ganancias_id" string="Régimen Ganancias por Defecto"/>
+                    </group>
+
+                    <separator string="OTROS" colspan="2"/>
+                    <button string="Actualizar" name="action_update_ret_perc_from_padron" type="object" class="oe_highlight"/>
+                    <div full_width="1">
+                        <label for="arba_alicuot_ids"/>
+                        <field name="arba_alicuot_ids"/>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

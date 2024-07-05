@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="import_padron.action_padron" model="ir.actions.act_window">
+        <field name="name">Padron</field>
+        <field name="res_model">account.padron</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="import_padron.padron_view_tree" model="ir.ui.view">
+        <field name="name">import_padron.padron.view.tree</field>
+        <field name="model">account.padron</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="regimen" string="Regimen"/>
+                <field name="date_p" string="Fecha de Publicacion"/>
+                <field name="date_from" string="Fecha Desde"/>
+                <field name="date_to" string="Fecha Hasta"/>
+                <field name="tax" string="Impuesto"/>
+                <field name="cuit" string="CUIT"/>
+                <field name="const_type" string="Tipo de contribuyente Ins"/>
+                <field name="marc_subject" string="Marca Sujeto"/>
+                <field name="marc_change_alic" string="Marca cambio alicuota"/>
+                <field name="percent" string="Porcentaje"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="import_padron.padron_view_form" model="ir.ui.view">
+        <field name="name">import_padron.padron.view.form</field>
+        <field name="model">account.padron</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="regimen" string="Regimen"/>
+                            <field name="date_p" string="Fecha de Publicacion"/>
+                            <field name="date_from" string="Fecha Desde"/>
+                            <field name="date_to" string="Fecha Hasta"/>
+                            <field name="tax" string="Impuesto"/>
+                            <field name="company_id" string="Empresa"/>
+                            <field name="padron_import_id" string="Padron Import ID"/>
+                        </group>
+                        <group>
+                            <field name="cuit" string="CUIT"/>
+                            <field name="const_type" string="Tipo de contribuyente Ins"/>
+                            <field name="marc_subject" string="Marca Sujeto"/>
+                            <field name="marc_change_alic" string="Marca cambio alicuota"/>
+                            <field name="percent" string="Porcentaje"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+        id="import_padron.menu_afip_config_padron"
+        name="Padron"
+        parent="l10n_ar.menu_afip_config"
+        action="import_padron.action_padron"
+        sequence="54"/>
+
+</odoo>
